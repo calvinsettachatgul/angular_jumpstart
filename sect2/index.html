@@ -1,0 +1,98 @@
+<!doctype = html>
+<html data-ng-app>
+  <head>
+    <title>Using Directives</title>
+    <link rel="stylesheet" type"text/css" href="styles.css">
+  </head>
+  <body ng-init="data={name:'James', loggedIn: false, isVisible: true, status: 'red'}">
+   <!--  {{ 1 + 1 }}
+    <div ng-hide="isHidden">
+      Name: <input type="text" ng-model="name" /> {{ name }}
+      <span ng-bind="name"></>
+    </div>
+
+    Hide: <input type="checkbox" ng-model="isHidden" />
+    <br />
+    <button ng-click="name='Michelle'">Change Name</button> -->
+    
+
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!--
+        ng-cloak
+        ng-switch
+        ng-class
+        ng-show
+      -->
+   <!--  
+  <p> example of using
+  <ul>
+    <li>ng-cloak</li>
+    <li>ng-switch</li>
+    <li>ng-class</li>
+    <li>ng-show</li>
+  </ul>
+  </p>
+   <div ng-cloak>
+      <div ng-switch on="data.loggedIn">
+        <div ng-switch-when="true" ng-class="data.status">
+          Welcome {{ data.name }}
+        </div>
+        <div ng-switch-default ng-class="data.status">Login</div>
+      </div>
+      <br />
+      <div ng-show="data.isVisible">
+        Name: <input type="text" ng-model="data.name" />
+          {{ data.name }}
+      </div>
+    </div> -->
+
+
+    <!-- using ng-repeat basic example -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->   
+    <!-- <div ng-init="names=['Dave', 'Jeff', 'Heedy', 'Danny']">
+      <h3>Iterating through data with ng-repeat</h3>
+      <ul>
+        <li ng-repeat="name in names">{{ name }}</li>
+      </ul>
+    </div> -->
+
+    <!-- ul and table with people and cities -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->      
+    <!-- ********************* -->   
+        <div ng-init="people=[
+                              {name:'Calvin', city:'San Mateo'}, 
+                              {name:'Patson', city:'Oakland'},
+                              {name:'Jill', city:'San Francisco'}, 
+                              {name:'Morgan', city:'Burlingame'},
+                              {name:'Jim', city:'Jacksonville'}, 
+                            ]" ng-cloak>
+      <h3>Iterating through data with ng-repeat</h3>
+      <ul>
+        <!-- <li ng-repeat="person in people">{{ person.name }} {{ person.city }}</li> -->
+        <li ng-repeat="person in people">{{ person.name + " " + person.city}} </li>
+      </ul>
+
+      <table>
+        <tr>
+          <td>Name</td>
+          <td>City</td>
+        </tr>
+        <tr ng-repeat="person in people">
+          <td>{{ person.name }}</td>
+          <td>{{ person.city }}</td>
+        </tr>
+      </table>
+    </div>
+   
+    <script src="angular.js"></script>
+  </body>
+</html>
+

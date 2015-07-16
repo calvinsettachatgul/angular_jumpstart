@@ -1,0 +1,40 @@
+<!doctype html>
+<html data-ng-app>
+<head>
+  <title>Iterating Over Data</title>
+  <link href="styles.css" rel="stylesheet" type="text/css" />
+</head>
+<body ng-cloak ng-init="customers=[
+    {joined:'2000-01-02', name:'John', city:'San Francisco', orderTotal:5.23432}, 
+    {joined:'2000-02-02', name:'Larry', city:'Atlanta', orderTotal:7.23432}, 
+    {joined:'2000-12-02', name:'Miguel', city:'New York City', orderTotal:8.23432},
+    {joined:'2000-12-02', name:'Calvin', city:'San Francisco', orderTotal:8.23432},
+    ]"
+/>
+
+  <h2>Customers</h2>
+  Filter: <input type="text" ng-model="customerFilter.name"/>
+  <br /><br />
+  <table>
+    <tr>
+      <th ng-click="sortBy='name';reverse=!reverse">Name</th>
+      <th ng-click="sortBy='city';reverse=!reverse">City</th>
+      <th ng-click="sortBy='orderTotal';reverse=!reverse">OrderTotal</th>
+      <th ng-click="sortBy='joined';reverse=!reverse">Joined</th>
+    </tr>
+    <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+      <td>{{ cust.name | uppercase }}</td>
+      <!-- <td>{{ cust.name | lowercase }}</td> -->
+      <td>{{ cust.city }}</td>
+      <td>{{ cust.orderTotal | currency }}</td>
+      <!-- <td>{{ cust.orderTotal | currency:'Y' }}</td> -->
+      <!-- <td>{{ cust.joined | date }}</td> -->
+      <!-- <td>{{ cust.joined | date:'YYYY-MM'}}</td> -->
+      <!-- <td>{{ cust.joined | date:'medium'}}</td> -->
+      <td>{{ cust.joined | date:'short'}}</td>
+    </tr>
+  </table>
+
+  <script src="angular.js"></script>
+</body>
+</html>

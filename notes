@@ -1,0 +1,116 @@
+
+
+examples of AngularJS Directives
+
+DOM Manipulation 
+ng-hide
+ng-repeat
+ng-show
+ng-view
+
+Modules/Controllers
+ng-app
+ng-controller
+
+Data Binding
+ng-bind
+ng-init
+ng-model
+
+Events
+ng-click
+ng-keypress
+ng-mouseenter
+
+<div ng-hide="isHidden">
+
+<div data-ng-hide="isHidden">
+
+<ng-view></ng-view>
+
+data binding 
+
+{{ 1 + 1 }}
+
+this is called binding mark up
+an expression is a property name
+or object.property
+
+or simple expressions  business logic should not go inside the view
+
+ng-bind="name"
+
+sorting and formatting
+
+filters and pipes
+
+| character
+
+filter for currency or custom filters
+
+other filters
+currency
+date
+filter - applying a filter to a data
+json - raw json for debugging
+limitTo - array and limit to a certain number of items
+lowercase - string to lowercase
+number
+orderBy
+uppercase
+
+example of filter
+<ul>
+	<li data-ng-repeate="cust in customers | orderBy:"'name'">
+	  {{ cust.orderTotal | currency }}
+	</li>
+</ul>
+
+<input type="text" data-ng-model="nameText" />
+<ul>
+	<li data-ng-repeat="cust in customers | filter:nameText | orderBy:'name'">
+		{{ cust.name }} - {{ cust.city }} </li>
+</ul>
+
+module is a container
+
+module a tupperwear container that can hold things
+pull them out of the global scope
+
+can hold routes and filters and directives
+
+how do we define an actual module
+
+havent assigned ng-app a value
+
+ng-app="moduleName"
+
+var demoApp = angular.module('demoApp', [])
+
+angular.module()
+
+[] array is for dependencies that the module might have
+
+it may reference other modules
+
+inject other modules into your module
+
+var demoApp = angular.module('demoApp', ['helperModule']);
+
+helperMOdule is an external module or third party module
+
+ng-app is a directive to tell to parse to look for angular syntax
+
+what are the ways we can add the controller
+a global variable
+
+#module
+angular.module('customersApp', []);
+
+#CustomersController.js
+app.controller('CustomersController', function($scope){});
+
+
+
+
+
