@@ -2,7 +2,7 @@
 
 examples of AngularJS Directives
 
-DOM Manipulation 
+DOM Manipulation
 ng-hide
 ng-repeat
 ng-show
@@ -28,7 +28,7 @@ ng-mouseenter
 
 <ng-view></ng-view>
 
-data binding 
+data binding
 
 {{ 1 + 1 }}
 
@@ -110,7 +110,6 @@ angular.module('customersApp', []);
 #CustomersController.js
 app.controller('CustomersController', function($scope){});
 
+these are the notes
 
-
-
-
+hello
