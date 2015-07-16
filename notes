@@ -112,4 +112,3 @@ app.controller('CustomersController', function($scope){});
 
 these are the notes
 
-hello
