@@ -112,3 +112,90 @@ app.controller('CustomersController', function($scope){});
 
 these are the notes
 
+modules are containers
+for
+controllers
+routes
+filters
+directives
+factories
+services
+
+
+modules have a
+angular.module method
+
+name 'demoApp' and dependencies array '[]'
+this is refered to as injecting dependencies
+
+see this later with animation
+third party libraries
+
+creating a module in angular.js
+
+defining a controller in a module
+
+option 1
+
+var demoApp = angular.module('appName', '[dependency_array]')
+
+demoApp.controller('SimpleController', function(){})
+
+demoApp.controller('SimpleController', function($scope){
+
+})
+
+option 2
+
+var demoApp = angular.module('demoApp', []);
+
+reference the module
+
+angular.module('demoApp').controller('SimpleController', function($scope){
+  $scope.customers = [
+            ]
+})
+
+option 3
+is avoiding the global scope
+var demoApp = angular.module('demoApp', []);
+
+//anonymous function wrapper so its not in the global scope
+(function(){
+  var SimpleController = function($scope){
+    $scope.customers = []
+  }
+
+  angular.module('demoApp')
+    .controller('SimpleController', SimpleController);
+
+}());
+
+anonymous function wrapper
+
+final piece of this what if you run it a script minifier
+
+$scope gets shortened to s
+this will break everything
+
+dependcy injection looks specifically for $scope
+
+one option is
+
+.controller('SimpleController',['$scope', function($scope) {
+  $scope.customers = [];
+}])
+
+
+
+or var SimpleController = function($scope){
+  $scope.customers = [];
+};
+
+SimpleController.$inject = ['$scope'];
+
+angular.module('demoApp')
+  .controller('SimpleController', SimpleController);
+
+angular.module('customersApp', []);
+
