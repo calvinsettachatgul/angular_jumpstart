@@ -4,7 +4,7 @@
   <title>Iterating Over Data</title>
   <link href="styles.css" rel="stylesheet" type="text/css" />
 </head>
-<body ng-cloak ng-controller="CustomersController">
+<body ng-cloak ng-controller="customersController as ctrl">
 
   <h2>Customers</h2>
   Filter: <input type="text" ng-model="customerFilter.name"/>
@@ -16,7 +16,7 @@
       <th ng-click="doSort('orderTotal')">OrderTotal</th>
       <th ng-click="doSort('joined')">Joined</th>
     </tr>
-    <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
+    <tr ng-repeat="cust in ctrl.customers | filter:customerFilter | orderBy:sortBy:reverse">
       <td>{{ cust.name | uppercase }}</td>
       <!-- <td>{{ cust.name | lowercase }}</td> -->
       <td>{{ cust.city }}</td>
@@ -29,11 +29,11 @@
     </tr>
   </table>
 
-  <span>Total customers: {{ customers.length }}</span>
+  <span>Total customers: {{ ctrl.customers.length }}</span>
 
   <script src="angular.js"></script>
   <script src="app/app.js"></script>
-  <script src="app/controllers/CustomersController.js"></script>
+  <script src="app/controllers/customersControllerWithAs.js"></script>
 
 </body>
 </html>
