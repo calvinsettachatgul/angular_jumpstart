@@ -56,7 +56,13 @@
       };
   };
 
+  CustomersController.$inject = ['$scope'];
+
   angular.module('customersApp')
   .controller('CustomersController', CustomersController);
 
 }())
+
+
+// avoiding problems with script minification
+
