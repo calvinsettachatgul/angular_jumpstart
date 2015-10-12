@@ -19,17 +19,17 @@
             templateUrl: 'app/views/customers.html'
         })
 
-      .when('/orders',
+      .when('/orders/:customerId',
         {
           controller: 'OrdersController',
           templateUrl: '/app/views/orders.html'
         })
 
-      .when('editCustomer/:customerId',
-        {
-          controller: 'CustomerEditController',
-          templateUrl: '/app/views/customerEdit.html'
-        });
+      // .when('editCustomer/:customerId',
+      //   {
+      //     controller: 'CustomerEditController',
+      //     templateUrl: '/app/views/customerEdit.html'
+      //   })
 
       .otherwise({ redirectTo: '/'});
   });

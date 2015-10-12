@@ -7,6 +7,7 @@
       <th ng-click="doSort('city')">City</th>
       <th ng-click="doSort('orderTotal')">OrderTotal</th>
       <th ng-click="doSort('joined')">Joined</th>
+      <th>&nbsp;</th>
     </tr>
     <tr ng-repeat="cust in customers | filter:customerFilter | orderBy:sortBy:reverse">
       <td>{{ cust.name | uppercase }}</td>
@@ -18,6 +19,7 @@
       <!-- <td>{{ cust.joined | date:'YYYY-MM'}}</td> -->
       <!-- <td>{{ cust.joined | date:'medium'}}</td> -->
       <td>{{ cust.joined | date:'short'}}</td>
+      <td><a href="#/orders/{{ cust.id }}">View Orders</a></td>
     </tr>
   </table>
 
